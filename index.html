@@ -1,10 +1,322 @@
-<!doctype html> 
-<html>     
-<head>         
-<title>Impress Tutorial</title>         
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">     
-</head>     
-<body>    
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-</body> 
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Introduce to Framer</h1>
+					<h3>The Prototype Framework</h3>
+				</section>
+				
+				<section>
+					<h2>Why Prototype?</h2>
+					<p>Explore and invent new interactions</p>
+					<p>Define how designs feel</p>
+					<p>Effectively communicate concepts</p>
+				</section>
+
+				<section>
+					<h2>Framer</h2>
+					<p>Framer.js</p>
+					<p>Framer Studio</p>
+					<p>Basics</p>
+				</section>
+
+				<section>
+					<h2>Framer.js</h2>
+					<p>Framer started as an open source JavaScript framework, alongside a standalone importer application.</p>
+				</section>
+
+				<section>
+					<h2>Framer Studio</h2>
+					<p>Built-in Code Editor</p>
+					<p>Instant Visual Feedback</p>
+					<p>Integrated Importing</p>
+					<p>Presentation Modes</p>
+				</section>
+
+				<section>
+					<h2>Framer Studio</h2>
+					<img data-src="images/framestudio.jpg">
+				</section>
+
+				<section>
+					<h2>Framer Studio</h2>
+					<video class="2x fullView" width="100%" playsinline="" autoplay="" loop="">
+						<source src="images/edit.mp4" type="video/mp4">
+					</video>
+				</section>
+
+				<section>
+					<h2>Sketch</h2>
+					<img data-src="images/sketch.jpg">
+				</section>
+
+				<section>
+					<h2>Some basics to get started</h2>
+					<p>Coffeescript</p>
+					<p>Layers, Animation, States, Events</p>
+				</section>
+
+				<section>
+					<h2>Coffeescript</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+# 赋值:
+number   = 42
+opposite = true
+
+# 函数:
+square = (x) -> x * x
+
+# 条件:
+if happy and knowsIt
+    clapsHands()
+    haChaCha()
+else
+    showIt()
+
+# 数组:
+list = [1, 2, 3, 4, 5]
+
+# 对象:
+math =
+    root:   Math.sqrt
+    square: square
+    cube:   (x) -> x * square x
+
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Layer</h2>
+					<p>Properties</p>
+					<p>Hierarchy</p>
+					<p>Types</p>
+				</section>
+
+				<section>
+					<h2>Properties</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+# Create a layer 
+layerA = new Layer
+    x: 0
+    y: 0
+    width: 200
+    height: 200
+    backgroundColor: "#fff"
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Hierarchy</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+# Two ways to define hierarchy 
+layerB.parent = layerA
+layerA.addChild(layerB)
+
+# Place layerB on top 
+layerB.placeBefore(layerA)
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Types</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+# Image 
+layerA = new Layer
+    image: "images/sea.png"
+ 
+# Video 
+layerA = new Layer
+    video: "fish.mp4"
+ 
+# Text 
+layerA = new Layer
+    html: "Hello!"
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Layer</h2>
+					<p>Properties</p>
+					<p>Hierarchy</p>
+					<p>Types</p>
+				</section>
+
+				<section>
+					<h2>Properties</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+# Create a layer 
+layerA = new Layer
+    x: 0
+    y: 0
+    width: 200
+    height: 200
+    backgroundColor: "#fff"
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Animation</h2>
+					<p>Curves</p>
+					<p>Timing</p>
+					<p>Chaining</p>
+				</section>
+
+				<section>
+					<h2>Options</h2>
+					<p>time (in seconds)</p>
+					<p>curve (ease, spring, bezier)</p>
+					<p>delay (in seconds)</p>
+					<p>repeat (amount of times)</p>
+					<p>colorModel (rgb, hsl, husl)</p>
+				</section>
+
+				<section>
+					<h2>Curves</h2>
+					<div>
+					<figure>
+						<img width="20%" src="images/curve-ease@2x.gif">
+					</figure>
+					<pre><code class="hljs" data-trim contenteditable>
+# Animate with an easing curve 
+layerA.animate
+    properties:
+        scale: 0.75
+    curve: "ease"
+    delay: 0
+    time: 1
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Chaining</h2>
+					<div>
+					<figure>
+						<img width="20%" src="images/anim-chain@2x.gif">
+					</figure>
+					<pre><code class="hljs" data-trim contenteditable>
+layerA.animate
+    properties:
+        x: 80
+    curve: "ease"
+ 
+layerA.onAnimationEnd ->
+    layerA.animate
+        properties:
+            x: 0
+        curve: "ease"
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>States</h2>
+					<p>Properties</p>
+					<p>Add, Remove</p>
+					<p>Cycle</p>
+				</section>
+
+				<section>
+					<h2>States</h2>
+					<div>
+					<pre><code class="hljs" data-trim contenteditable>
+# The default state 
+layerA = new Layer
+    opacity: 1
+ 
+# A new state titled "fade" 
+layerA.states.add
+    fade:
+        opacity: 0
+
+# Switch states with animation 
+layerA.states.switch("fade")
+ 
+# Switch states without animation 
+layerA.states.switchInstant("fade")
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Events</h2>
+					<p>Touch, Click</p>
+					<p>Dragging</p>
+					<p>Scrolling</p>
+				</section>
+
+				<section>
+					<h2>Events</h2>
+					<div>
+					<pre><code class="hljs" data-trim contenteditable>
+layerA.onTap ->
+    ...
+layerA.onScroll ->
+    ...
+layerA.onSwipe ->
+    ...
+layerA.onAnimationEnd ->
+    ...
+					</code></pre>
+					</div>
+				</section>
+
+				<section>
+					<h2>Some Examples</h2>
+				</section>
+				<section>
+					<iframe src="https://share.framerjs.com/tn1rakplcnhs/" style="width:800px;height:600px"></iframe>
+				</section>
+
+				<section>
+					<iframe src="http://share.framerjs.com/1xjjsmaldna5/" style="width:800px;height:600px"></iframe>
+				</section>
+
+				<section>
+					<h1>Thanks!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
 </html>
